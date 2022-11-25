@@ -1,6 +1,6 @@
-import Head from 'next/head'
-import Link from 'next/link'
-import Scene from '../components/Scene'
+import Head from "next/head";
+import Link from "next/link";
+import Scene from "../components/Scene";
 
 export default function Home() {
   return (
@@ -13,10 +13,19 @@ export default function Home() {
 
       <Scene />
 
-      <footer className={'w-full h-[10vh] flex justify-center items-center gap-2 text-xl font-medium'}>
-          Made with 🔥 by
-          <Link href={'https://github.com/tomcodedthis'} className='font-bold underline underline-offset-2'>tomcodedthis</Link> 
+      <footer
+        className={
+          "w-full h-[10vh] flex justify-center items-center gap-2 text-xl font-medium"
+        }
+      >
+        Made with 🔥 by
+        <Link
+          href={"https://github.com/tomcodedthis"}
+          className="font-bold underline underline-offset-2"
+        >
+          tomcodedthis
+        </Link>
       </footer>
     </>
-  )
+  );
 }
