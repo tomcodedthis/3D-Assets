@@ -1,31 +1,84 @@
 import Head from "next/head";
-import Link from "next/link";
+import Script from "next/script";
+import { useState } from "react";
+import Footer from "../components/Footer";
 import Scene from "../components/Scene";
 
 export default function Home() {
+  const [positions] = useState([
+    {
+      rotation: {
+        x: -0.7,
+        y: 0,
+        z: 3.125,
+      },
+      position: {
+        x: -2,
+        y: 1.5,
+        z: -3,
+      },
+    },
+    {
+      rotation: {
+        x: 5.3,
+        y: 0,
+        z: 2.4,
+      },
+      position: {
+        x: -0.5,
+        y: 2.5,
+        z: -2.5,
+      },
+    },
+    {
+      rotation: {
+        x: 5.3,
+        y: 0,
+        z: -2.4,
+      },
+      position: {
+        x: -3,
+        y: 1,
+        z: 0,
+      },
+    },
+  ]);
+  const [model, setModel] = useState(positions[0]);
+  const [camera, setCamera] = useState({
+    position: {
+      x: 0,
+      y: 0,
+      z: 0,
+    },
+  });
+
   return (
     <>
       <Head>
         <title>3D Assets Demo</title>
         <meta name="description" content="3D Assets demo by tomcodedthis" />
         <link rel="icon" href="/favicon.ico" />
+        <Script
+          src="https://kit.fontawesome.com/e31209f1bd.js"
+          crossorigin="anonymous"
+        />
       </Head>
 
-      <Scene />
+      <Scene
+        camera={camera}
+        setCamera={setCamera}
+        model={model}
+        setModel={setModel}
+        positions={positions}
+      />
 
-      <footer
-        className={
-          "w-full h-[10vh] flex justify-center items-center gap-2 text-xl font-medium"
-        }
-      >
-        Made with 🔥 by
-        <Link
-          href={"https://github.com/tomcodedthis"}
-          className="font-bold underline underline-offset-2"
-        >
-          tomcodedthis
-        </Link>
-      </footer>
+      <Footer
+        camera={camera}
+        setCamera={setCamera}
+        model={model}
+        setModel={setModel}
+        positions={positions}
+      />
     </>
   );
 }

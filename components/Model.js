@@ -11,10 +11,13 @@ import { useGLTF } from "@react-three/drei";
 
 export default function Model(props) {
   const group = useRef();
-  const { nodes, materials } = useGLTF("../model-scenes/scene.gltf");
+  const { nodes, materials } = useGLTF(props.src);
   return (
-    <group ref={group} {...props} dispose={null}>
-      <group rotation={[-Math.PI / 2.6, 0.1, -2.5]} position={[0, 0, -0.7]}>
+    <group ref={group} dispose={null} className={"duration-150"}>
+      <group
+        rotation={Object.values(props.model.rotation)}
+        position={Object.values(props.model.position)}
+      >
         <mesh
           geometry={nodes.Object_2.geometry}
           material={materials["Material.001"]}
