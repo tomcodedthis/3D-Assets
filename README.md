@@ -1,1 +1,4 @@
-## A Next.js / React.js project, it allows previewing of 3D Models in the browser, utilising the library: React-Three
+### Next.js / React.js project
+### Previews 3D Models in a browser environment, utilising the library React-Three
+
+## [Live Site](https://3d-assets-three.vercel.app/)
