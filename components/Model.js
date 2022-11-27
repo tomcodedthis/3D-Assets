@@ -12,8 +12,9 @@ import { useGLTF } from "@react-three/drei";
 export default function Model(props) {
   const group = useRef();
   const { nodes, materials } = useGLTF(props.src);
+
   return (
-    <group ref={group} dispose={null} className={"duration-150"}>
+    <group ref={group} dispose={null}>
       <group
         rotation={Object.values(props.model.rotation)}
         position={Object.values(props.model.position)}

@@ -1,11 +1,24 @@
 import Head from "next/head";
 import Script from "next/script";
 import { useState } from "react";
+import { degToRad } from "three/src/math/MathUtils";
 import Footer from "../components/Footer";
 import Scene from "../components/Scene";
 
 export default function Home() {
   const [positions] = useState([
+    {
+      rotation: {
+        x: degToRad(110),
+        y: degToRad(178),
+        z: degToRad(5),
+      },
+      position: {
+        x: -2,
+        y: 1,
+        z: 0,
+      },
+    },
     {
       rotation: {
         x: -0.7,
@@ -51,6 +64,7 @@ export default function Home() {
       z: 0,
     },
   });
+  const [play, setPlay] = useState(true);
 
   return (
     <>
@@ -70,6 +84,7 @@ export default function Home() {
         model={model}
         setModel={setModel}
         positions={positions}
+        play={play}
       />
 
       <Footer
@@ -78,6 +93,8 @@ export default function Home() {
         model={model}
         setModel={setModel}
         positions={positions}
+        play={play}
+        setPlay={setPlay}
       />
     </>
   );

@@ -32,12 +32,12 @@ export default function Rotation(props) {
         <Button
           position="col-start-1 row-start-1 hover:rotate-[-20deg]"
           icon={faRotateLeft}
-          click={() => rotate(true)}
+          // click={() => rotate(true)}
         />
         <Button
           position="col-start-2 row-start-1 hover:rotate-[20deg]"
           icon={faRotateRight}
-          click={() => rotate(false)}
+          // click={() => rotate(false)}
         />
       </div>
     </>

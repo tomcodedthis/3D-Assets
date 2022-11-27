@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Paused from "./Controls/Pause";
 import Position from "./Controls/Position";
 import Rotation from "./Controls/Rotation";
 
@@ -11,6 +12,7 @@ export default function Footer(props) {
         }
       >
         <Credit />
+        <Paused setPlay={props.setPlay} play={props.play} />
         <div className="h-full flex gap-12">
           <Rotation
             model={props.model}
@@ -32,7 +34,6 @@ export default function Footer(props) {
 function Credit() {
   return (
     <div className="relative top-[-0.5rem] flex gap-2">
-      Made with 🔥 by
       <Link
         href={"https://github.com/tomcodedthis"}
         className="font-bold underline underline-offset-2"
