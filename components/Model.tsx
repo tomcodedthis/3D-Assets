@@ -9,16 +9,13 @@ title: 2021 Lamborghini Countach LPI 800-4
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
-export default function Model(props) {
-  const group = useRef();
+export default function Model(props: any) {
+  const group = useRef(null);
   const { nodes, materials } = useGLTF(props.src);
 
   return (
     <group ref={group} dispose={null}>
-      <group
-        rotation={Object.values(props.model.rotation)}
-        position={Object.values(props.model.position)}
-      >
+      <group rotation={props.model.rotation} position={props.model.position}>
         <mesh
           geometry={nodes.Object_2.geometry}
           material={materials["Material.001"]}

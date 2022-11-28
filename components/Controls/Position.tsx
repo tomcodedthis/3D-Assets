@@ -5,6 +5,7 @@ import {
   faArrowUp,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react";
 
 export default function Position() {
   return (
@@ -23,7 +24,7 @@ export default function Position() {
   );
 }
 
-function Button(props) {
+function Button(props: any) {
   return (
     <button
       className={`${props.position} p-[0.1rem] hover:scale-125 duration-300`}

@@ -1,62 +1,20 @@
+import React from "react";
 import Head from "next/head";
 import Script from "next/script";
 import { useState } from "react";
 import { degToRad } from "three/src/math/MathUtils";
 import Footer from "../components/Footer";
 import Scene from "../components/Scene";
+import THREE from "three";
 
 export default function Home() {
-  const [positions] = useState([
-    {
-      rotation: {
-        x: degToRad(110),
-        y: degToRad(178),
-        z: degToRad(5),
-      },
-      position: {
-        x: -2,
-        y: 1,
-        z: 0,
-      },
-    },
-    {
-      rotation: {
-        x: -0.7,
-        y: 0,
-        z: 3.125,
-      },
-      position: {
-        x: -2,
-        y: 1.5,
-        z: -3,
-      },
-    },
-    {
-      rotation: {
-        x: 5.3,
-        y: 0,
-        z: 2.4,
-      },
-      position: {
-        x: -0.5,
-        y: 2.5,
-        z: -2.5,
-      },
-    },
-    {
-      rotation: {
-        x: 5.3,
-        y: 0,
-        z: -2.4,
-      },
-      position: {
-        x: -3,
-        y: 1,
-        z: 0,
-      },
-    },
-  ]);
-  const [model, setModel] = useState(positions[0]);
+  // const rotation = new THREE.Euler(degToRad(110), degToRad(178), degToRad(5), "XYZ")
+  // const rotation = new THREE.Vector3(-2, 1, 0)
+  const [positions] = useState({
+    rotation: [degToRad(110), degToRad(178), degToRad(5)],
+    position: [-2, 1, 0],
+  });
+  const [model, setModel] = useState(positions);
   const [camera, setCamera] = useState({
     position: {
       x: 0,
@@ -72,11 +30,12 @@ export default function Home() {
         <title>3D Assets Demo</title>
         <meta name="description" content="3D Assets demo by tomcodedthis" />
         <link rel="icon" href="/favicon.ico" />
-        <Script
-          src="https://kit.fontawesome.com/e31209f1bd.js"
-          crossorigin="anonymous"
-        />
       </Head>
+
+      <Script
+        src="https://kit.fontawesome.com/e31209f1bd.js"
+        crossOrigin="anonymous"
+      />
 
       <Scene
         camera={camera}

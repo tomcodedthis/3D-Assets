@@ -1,8 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPause, faPlay } from "@fortawesome/free-solid-svg-icons";
-import { useRef, useState } from "react";
+import { useState } from "react";
+import React from "react";
 
-export default function Paused(props) {
+export default function Paused(props: any) {
   const [icon, setIcon] = useState(faPause);
   const play = () => {
     props.setPlay(props.play ? false : true);
@@ -18,7 +19,7 @@ export default function Paused(props) {
   );
 }
 
-function Button(props) {
+function Button(props: any) {
   return (
     <button
       onClick={props.click}

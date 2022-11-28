@@ -1,9 +1,10 @@
 import Link from "next/link";
+import React from "react";
 import Paused from "./Controls/Pause";
 import Position from "./Controls/Position";
 import Rotation from "./Controls/Rotation";
 
-export default function Footer(props) {
+export default function Footer(props: any) {
   return (
     <>
       <footer
@@ -12,19 +13,11 @@ export default function Footer(props) {
         }
       >
         <Credit />
-        <Paused setPlay={props.setPlay} play={props.play} />
-        <div className="h-full flex gap-12">
-          <Rotation
-            model={props.model}
-            setModel={props.setModel}
-            positions={props.positions}
-          />
+        <Paused {...props} />
 
-          <Position
-            model={props.model}
-            setModel={props.setModel}
-            positions={props.positions}
-          />
+        <div className="h-full flex gap-12">
+          <Rotation {...props} />
+          <Position {...props} />
         </div>
       </footer>
     </>
@@ -33,7 +26,7 @@ export default function Footer(props) {
 
 function Credit() {
   return (
-    <div className="relative top-[-0.5rem] flex gap-2">
+    <div className="relative top-[-0.5rem] flex gap-2 bg-white">
       <Link
         href={"https://github.com/tomcodedthis"}
         className="font-bold underline underline-offset-2"

@@ -1,11 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRotateLeft, faRotateRight } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import React from "react";
 
-export default function Rotation(props) {
+export default function Rotation(props: any) {
   const [position, setPostion] = useState(0);
 
-  const rotate = (left) => {
+  const rotate = (left: boolean) => {
     let index;
 
     if (left) {
@@ -44,7 +45,7 @@ export default function Rotation(props) {
   );
 }
 
-function Button(props) {
+function Button(props: any) {
   return (
     <button
       onClick={props.click}
