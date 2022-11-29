@@ -1,5 +1,5 @@
 {
-  "name": "3D-Assets",
+  "name": "3d-assets",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -20,7 +20,7 @@
     "eslint": "8.28.0",
     "eslint-config-next": "13.0.5",
     "gltfjsx": "^5.0.2",
-    "next": "13.0.5",
+    "next": "^13.0.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "three": "^0.146.0",

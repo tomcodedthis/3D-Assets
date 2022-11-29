@@ -14,12 +14,7 @@ export default function Scene(props: any) {
 
           <PerspectiveCamera makeDefault position={[2, 2, 12]} />
           <OrbitControls rotateSpeed={0.4} autoRotate={props.play} />
-          <Model
-            src={"../model-scenes/scene.gltf"}
-            positions={props.positions}
-            model={props.model}
-            setModel={props.setModel}
-          />
+          <Model {...props} />
         </Suspense>
       </Canvas>
     </main>

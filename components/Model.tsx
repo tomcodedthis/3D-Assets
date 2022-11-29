@@ -6,238 +6,127 @@ source: https://sketchfab.com/3d-models/2021-lamborghini-countach-lpi-800-4-d76b
 title: 2021 Lamborghini Countach LPI 800-4
 */
 
-import React, { useRef } from "react";
-import { useGLTF } from "@react-three/drei";
-import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
+import * as THREE from 'three'
+import React, { useRef } from 'react'
+import { useGLTF } from '@react-three/drei'
+import { GLTF } from 'three-stdlib'
 
-type GLFTResult = GLTF & {
+type GLTFResult = GLTF & {
   nodes: {
-    Object_2: THREE.Mesh;
-    Object_3: THREE.Mesh;
-    Object_4: THREE.Mesh;
-    Object_5: THREE.Mesh;
-    Object_6: THREE.Mesh;
-    Object_7: THREE.Mesh;
-    Object_8: THREE.Mesh;
-    Object_9: THREE.Mesh;
-    Object_10: THREE.Mesh;
-    Object_11: THREE.Mesh;
-    Object_12: THREE.Mesh;
-    Object_13: THREE.Mesh;
-    Object_14: THREE.Mesh;
-    Object_15: THREE.Mesh;
-    Object_16: THREE.Mesh;
-    Object_17: THREE.Mesh;
-    Object_18: THREE.Mesh;
-    Object_19: THREE.Mesh;
-    Object_20: THREE.Mesh;
-    Object_21: THREE.Mesh;
-    Object_22: THREE.Mesh;
-    Object_23: THREE.Mesh;
-    Object_24: THREE.Mesh;
-    Object_25: THREE.Mesh;
-    Object_26: THREE.Mesh;
-    Object_27: THREE.Mesh;
-    Object_28: THREE.Mesh;
-    Object_29: THREE.Mesh;
-    Object_30: THREE.Mesh;
-    Object_31: THREE.Mesh;
-    Object_32: THREE.Mesh;
-    Object_33: THREE.Mesh;
-    Object_34: THREE.Mesh;
-    Object_35: THREE.Mesh;
-    Object_36: THREE.Mesh;
-    Object_37: THREE.Mesh;
-    Object_38: THREE.Mesh;
-    Object_39: THREE.Mesh;
-    Object_40: THREE.Mesh;
+    Object_2: THREE.Mesh
+    Object_3: THREE.Mesh
+    Object_4: THREE.Mesh
+    Object_5: THREE.Mesh
+    Object_6: THREE.Mesh
+    Object_7: THREE.Mesh
+    Object_8: THREE.Mesh
+    Object_9: THREE.Mesh
+    Object_10: THREE.Mesh
+    Object_11: THREE.Mesh
+    Object_12: THREE.Mesh
+    Object_13: THREE.Mesh
+    Object_14: THREE.Mesh
+    Object_15: THREE.Mesh
+    Object_16: THREE.Mesh
+    Object_17: THREE.Mesh
+    Object_18: THREE.Mesh
+    Object_19: THREE.Mesh
+    Object_20: THREE.Mesh
+    Object_21: THREE.Mesh
+    Object_22: THREE.Mesh
+    Object_23: THREE.Mesh
+    Object_24: THREE.Mesh
+    Object_25: THREE.Mesh
+    Object_26: THREE.Mesh
+    Object_27: THREE.Mesh
+    Object_28: THREE.Mesh
+    Object_29: THREE.Mesh
+    Object_30: THREE.Mesh
+    Object_31: THREE.Mesh
+    Object_32: THREE.Mesh
+    Object_33: THREE.Mesh
+    Object_34: THREE.Mesh
+    Object_35: THREE.Mesh
+    Object_36: THREE.Mesh
+    Object_37: THREE.Mesh
+    Object_38: THREE.Mesh
+    Object_39: THREE.Mesh
+    Object_40: THREE.Mesh
   }
   materials: {
-    ['default']: THREE.MeshStandardMaterial;
-    ['Material.001']: THREE.MeshStandardMaterial;
-    ['Material.004']: THREE.MeshStandardMaterial;
-    ['Material.005']: THREE.MeshStandardMaterial;
-    ['Material.007']: THREE.MeshStandardMaterial;
-    ['Material.008']: THREE.MeshStandardMaterial;
-    ['Material.009']: THREE.MeshStandardMaterial;
-    ['Material.010']: THREE.MeshStandardMaterial;
-    ['Material.013']: THREE.MeshStandardMaterial;
-    ['Material.016']: THREE.MeshStandardMaterial;
-    ['Material.017']: THREE.MeshStandardMaterial;
-    ['Material.018']: THREE.MeshStandardMaterial;
-    ['Material.020']: THREE.MeshStandardMaterial;
-    ['Material.029']: THREE.MeshStandardMaterial;
-    ['Material.042']: THREE.MeshStandardMaterial;
-    ['Lamborghini-text-logo-1440x900']: THREE.MeshStandardMaterial;
+    ['Material.001']: THREE.MeshStandardMaterial
+    ['Material.004']: THREE.LineBasicMaterial
+    ['Material.008']: THREE.MeshPhysicalMaterial
+    ['Material.010']: THREE.MeshStandardMaterial
+    ['Material.016']: THREE.LineBasicMaterial
+    // ['Material.016']: THREE.MeshStandardMaterial
+    ['Material.020']: THREE.MeshStandardMaterial
+    ['Material.018']: THREE.MeshStandardMaterial
+    ['Material.029']: THREE.MeshStandardMaterial
+    ['Material.042']: THREE.MeshPhysicalMaterial
+    ['Lamborghini-text-logo-1440x900']: THREE.MeshStandardMaterial
+    ['Material.002']: THREE.MeshStandardMaterial
+    ['Material.003']: THREE.LineBasicMaterial
+    // ['Material.003']: THREE.MeshStandardMaterial
+    // ['Material.004']: THREE.MeshPhysicalMaterial
+    ['Material.005']: THREE.MeshStandardMaterial
+    ['Material.007']: THREE.MeshStandardMaterial
+    ['Material.009']: THREE.MeshPhysicalMaterial
+    ['Material.011']: THREE.MeshStandardMaterial
+    ['Material.013']: THREE.MeshStandardMaterial
+    ['Material.012']: THREE.MeshPhysicalMaterial
+    ['Material.025']: THREE.MeshStandardMaterial
+    ['Material.017']: THREE.MeshStandardMaterial
   }
 }
 
-export default function Model(props: any) {
-  const group = useRef(null);
-  const { nodes, materials } = useGLTF(props.src) as GLFTResult;
-
+export default function Model(props: JSX.IntrinsicElements['group']) {
+  const { nodes, materials } = useGLTF('../public/model-scenes/scene.gltf') as unknown as GLTFResult
   return (
-    <group ref={group} dispose={null}>
-      <group rotation={props.model.rotation} position={props.model.position}>
-        <mesh
-          geometry={nodes.Object_2.geometry}
-          material={materials["Material.001"]}
-        />
-        <lineSegments
-          geometry={nodes.Object_3.geometry}
-          material={materials["Material.004"]}
-        />
-        <mesh
-          geometry={nodes.Object_4.geometry}
-          material={materials["Material.008"]}
-        />
-        <mesh
-          geometry={nodes.Object_5.geometry}
-          material={materials["Material.010"]}
-        />
-        <lineSegments
-          geometry={nodes.Object_6.geometry}
-          material={materials["Material.016"]}
-        />
-        <mesh
-          geometry={nodes.Object_7.geometry}
-          material={materials["Material.016"]}
-        />
-        <mesh
-          geometry={nodes.Object_8.geometry}
-          material={materials["Material.020"]}
-        />
-        <mesh
-          geometry={nodes.Object_9.geometry}
-          material={materials["Material.018"]}
-        />
-        <mesh
-          geometry={nodes.Object_10.geometry}
-          material={materials["Material.029"]}
-        />
-        <mesh
-          geometry={nodes.Object_11.geometry}
-          material={materials["Material.042"]}
-        />
-        <mesh
-          geometry={nodes.Object_12.geometry}
-          material={materials["Lamborghini-text-logo-1440x900"]}
-        />
-        <mesh
-          geometry={nodes.Object_13.geometry}
-          material={nodes.Object_13.material}
-        />
-        <mesh
-          geometry={nodes.Object_14.geometry}
-          material={nodes.Object_14.material}
-        />
-        <mesh
-          geometry={nodes.Object_15.geometry}
-          material={nodes.Object_15.material}
-        />
-        <lineSegments
-          geometry={nodes.Object_16.geometry}
-          material={nodes.Object_16.material}
-        />
-        <mesh
-          geometry={nodes.Object_17.geometry}
-          material={nodes.Object_17.material}
-        />
-        <mesh
-          geometry={nodes.Object_18.geometry}
-          material={nodes.Object_18.material}
-        />
-        <mesh
-          geometry={nodes.Object_19.geometry}
-          material={materials["Material.004"]}
-        />
-        <mesh
-          geometry={nodes.Object_20.geometry}
-          material={materials["Material.005"]}
-        />
-        <mesh
-          geometry={nodes.Object_21.geometry}
-          material={materials["Material.007"]}
-        />
-        <mesh
-          geometry={nodes.Object_22.geometry}
-          material={materials["Material.009"]}
-        />
-        <mesh
-          geometry={nodes.Object_23.geometry}
-          material={nodes.Object_23.material}
-        />
-        <mesh
-          geometry={nodes.Object_24.geometry}
-          material={nodes.Object_24.material}
-        />
-        <mesh
-          geometry={nodes.Object_25.geometry}
-          material={nodes.Object_25.material}
-        />
-        <mesh
-          geometry={nodes.Object_26.geometry}
-          material={nodes.Object_26.material}
-        />
-        <mesh
-          geometry={nodes.Object_27.geometry}
-          material={materials["Material.013"]}
-        />
-        <mesh
-          geometry={nodes.Object_28.geometry}
-          material={nodes.Object_28.material}
-        />
-        <mesh
-          geometry={nodes.Object_29.geometry}
-          material={nodes.Object_29.material}
-        />
-        <mesh
-          geometry={nodes.Object_30.geometry}
-          material={nodes.Object_30.material}
-        />
-        <mesh
-          geometry={nodes.Object_31.geometry}
-          material={nodes.Object_31.material}
-        />
-        <mesh
-          geometry={nodes.Object_32.geometry}
-          material={nodes.Object_32.material}
-        />
-        <mesh
-          geometry={nodes.Object_33.geometry}
-          material={nodes.Object_33.material}
-        />
-        <mesh
-          geometry={nodes.Object_34.geometry}
-          material={nodes.Object_34.material}
-        />
-        <mesh
-          geometry={nodes.Object_35.geometry}
-          material={nodes.Object_35.material}
-        />
-        <mesh
-          geometry={nodes.Object_36.geometry}
-          material={nodes.Object_36.material}
-        />
-        <mesh
-          geometry={nodes.Object_37.geometry}
-          material={nodes.Object_37.material}
-        />
-        <mesh
-          geometry={nodes.Object_38.geometry}
-          material={nodes.Object_38.material}
-        />
-        <mesh
-          geometry={nodes.Object_39.geometry}
-          material={nodes.Object_39.material}
-        />
-        <mesh
-          geometry={nodes.Object_40.geometry}
-          material={materials["Material.017"]}
-        />
+    <group {...props} dispose={null}>
+      <group rotation={[-Math.PI / 2, 0, 0]}>
+        <mesh castShadow receiveShadow geometry={nodes.Object_2.geometry} material={materials['Material.001']} />
+        <lineSegments geometry={nodes.Object_3.geometry} material={materials['Material.004']} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_4.geometry} material={materials['Material.008']} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_5.geometry} material={materials['Material.010']} />
+        <lineSegments geometry={nodes.Object_6.geometry} material={materials['Material.016']} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_7.geometry} material={materials['Material.016']} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_8.geometry} material={materials['Material.020']} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_9.geometry} material={materials['Material.018']} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_10.geometry} material={materials['Material.029']} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_11.geometry} material={materials['Material.042']} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_12.geometry} material={materials['Lamborghini-text-logo-1440x900']} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_13.geometry} material={materials['Material.002']} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_14.geometry} material={materials['Material.002']} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_15.geometry} material={materials['Material.002']} />
+        <lineSegments geometry={nodes.Object_16.geometry} material={materials['Material.003']} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_17.geometry} material={materials['Material.003']} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_18.geometry} material={materials['Material.003']} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_19.geometry} material={materials['Material.004']} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_20.geometry} material={materials['Material.005']} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_21.geometry} material={materials['Material.007']} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_22.geometry} material={materials['Material.009']} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_23.geometry} material={materials['Material.011']} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_24.geometry} material={materials['Material.011']} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_25.geometry} material={materials['Material.011']} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_26.geometry} material={materials['Material.011']} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_27.geometry} material={materials['Material.013']} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_28.geometry} material={materials['Material.012']} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_29.geometry} material={materials['Material.012']} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_30.geometry} material={materials['Material.012']} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_31.geometry} material={materials['Material.012']} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_32.geometry} material={materials['Material.012']} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_33.geometry} material={materials['Material.012']} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_34.geometry} material={materials['Material.025']} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_35.geometry} material={materials['Material.025']} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_36.geometry} material={materials['Material.025']} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_37.geometry} material={materials['Material.025']} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_38.geometry} material={materials['Material.025']} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_39.geometry} material={materials['Material.025']} />
+        <mesh castShadow receiveShadow geometry={nodes.Object_40.geometry} material={materials['Material.017']} />
       </group>
     </group>
-  );
+  )
 }
 
-useGLTF.preload("../model-scenes/scene.gltf");
+useGLTF.preload('../public/model-scenes/scene.gltf')
