@@ -1,7 +1,7 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRotateLeft, faRotateRight } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import React from "react";
+import Button from "./Button";
 
 export default function Rotation(props: any) {
   const [position, setPostion] = useState(0);
@@ -25,33 +25,18 @@ export default function Rotation(props: any) {
 
   return (
     <>
-      <div
-        className={
-          "relative top-[-1rem] h-[full] w-[15vh] grid grid-cols-2 grid-rows-1 place-content-center gap-4"
-        }
-      >
+      <div className={"h-[70%] flex items-center gap-2"}>
         <Button
-          position="col-start-1 row-start-1 hover:rotate-[-20deg]"
+          classes="hover:rotate-[-10deg]"
           icon={faRotateLeft}
-          // click={() => rotate(true)}
+          click={() => rotate(true)}
         />
         <Button
-          position="col-start-2 row-start-1 hover:rotate-[20deg]"
+          classes="hover:rotate-[10deg]"
           icon={faRotateRight}
-          // click={() => rotate(false)}
+          click={() => rotate(false)}
         />
       </div>
     </>
-  );
-}
-
-function Button(props: any) {
-  return (
-    <button
-      onClick={props.click}
-      className={`p-[0.1rem] ${props.position} hover:scale-110 duration-300`}
-    >
-      <FontAwesomeIcon icon={props.icon} className={`fa-solid ${props.icon}`} />
-    </button>
   );
 }

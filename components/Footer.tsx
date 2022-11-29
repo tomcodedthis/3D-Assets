@@ -9,13 +9,13 @@ export default function Footer(props: any) {
     <>
       <footer
         className={
-          "w-full h-[10vh] flex justify-between items-center gap-2 px-8 text-xl font-medium"
+          "w-full h-[10vh] flex justify-between items-center gap-2 px-6 pb-4 text-xl font-medium"
         }
       >
         <Credit />
-        <Paused {...props} />
 
-        <div className="h-full flex gap-12">
+        <div className="h-full flex items-center gap-10">
+          <Paused {...props} />
           <Rotation {...props} />
           <Position {...props} />
         </div>
@@ -26,7 +26,7 @@ export default function Footer(props: any) {
 
 function Credit() {
   return (
-    <div className="relative top-[-0.5rem] flex gap-2 bg-white">
+    <div className="">
       <Link
         href={"https://github.com/tomcodedthis"}
         className="font-bold underline underline-offset-2"
