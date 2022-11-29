@@ -8,10 +8,73 @@ title: 2021 Lamborghini Countach LPI 800-4
 
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
+import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
+
+type GLFTResult = GLTF & {
+  nodes: {
+    Object_2: THREE.Mesh;
+    Object_3: THREE.Mesh;
+    Object_4: THREE.Mesh;
+    Object_5: THREE.Mesh;
+    Object_6: THREE.Mesh;
+    Object_7: THREE.Mesh;
+    Object_8: THREE.Mesh;
+    Object_9: THREE.Mesh;
+    Object_10: THREE.Mesh;
+    Object_11: THREE.Mesh;
+    Object_12: THREE.Mesh;
+    Object_13: THREE.Mesh;
+    Object_14: THREE.Mesh;
+    Object_15: THREE.Mesh;
+    Object_16: THREE.Mesh;
+    Object_17: THREE.Mesh;
+    Object_18: THREE.Mesh;
+    Object_19: THREE.Mesh;
+    Object_20: THREE.Mesh;
+    Object_21: THREE.Mesh;
+    Object_22: THREE.Mesh;
+    Object_23: THREE.Mesh;
+    Object_24: THREE.Mesh;
+    Object_25: THREE.Mesh;
+    Object_26: THREE.Mesh;
+    Object_27: THREE.Mesh;
+    Object_28: THREE.Mesh;
+    Object_29: THREE.Mesh;
+    Object_30: THREE.Mesh;
+    Object_31: THREE.Mesh;
+    Object_32: THREE.Mesh;
+    Object_33: THREE.Mesh;
+    Object_34: THREE.Mesh;
+    Object_35: THREE.Mesh;
+    Object_36: THREE.Mesh;
+    Object_37: THREE.Mesh;
+    Object_38: THREE.Mesh;
+    Object_39: THREE.Mesh;
+    Object_40: THREE.Mesh;
+  }
+  materials: {
+    ['default']: THREE.MeshStandardMaterial;
+    ['Material.001']: THREE.MeshStandardMaterial;
+    ['Material.004']: THREE.MeshStandardMaterial;
+    ['Material.005']: THREE.MeshStandardMaterial;
+    ['Material.007']: THREE.MeshStandardMaterial;
+    ['Material.008']: THREE.MeshStandardMaterial;
+    ['Material.009']: THREE.MeshStandardMaterial;
+    ['Material.010']: THREE.MeshStandardMaterial;
+    ['Material.013']: THREE.MeshStandardMaterial;
+    ['Material.016']: THREE.MeshStandardMaterial;
+    ['Material.017']: THREE.MeshStandardMaterial;
+    ['Material.018']: THREE.MeshStandardMaterial;
+    ['Material.020']: THREE.MeshStandardMaterial;
+    ['Material.029']: THREE.MeshStandardMaterial;
+    ['Material.042']: THREE.MeshStandardMaterial;
+    ['Lamborghini-text-logo-1440x900']: THREE.MeshStandardMaterial;
+  }
+}
 
 export default function Model(props: any) {
   const group = useRef(null);
-  const { nodes, materials } = useGLTF(props.src);
+  const { nodes, materials } = useGLTF(props.src) as GLFTResult;
 
   return (
     <group ref={group} dispose={null}>
