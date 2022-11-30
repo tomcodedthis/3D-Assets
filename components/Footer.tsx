@@ -1,8 +1,8 @@
 import Link from "next/link";
 import React from "react";
 import Paused from "./Controls/Pause";
-import Position from "./Controls/Position";
 import Rotation from "./Controls/Rotation";
+import ModelSwitch from "./Controls/ModelSwitch";
 
 export default function Footer(props: any) {
   return (
@@ -17,7 +17,7 @@ export default function Footer(props: any) {
         <div className="h-full flex items-center gap-10">
           <Paused {...props} />
           <Rotation {...props} />
-          <Position {...props} />
+          <ModelSwitch {...props} />
         </div>
       </footer>
     </>

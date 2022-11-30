@@ -10,19 +10,26 @@ import THREE from "three";
 export default function Home() {
   // const rotation = new THREE.Euler(degToRad(110), degToRad(178), degToRad(5), "XYZ")
   // const rotation = new THREE.Vector3(-2, 1, 0)
-  const [positions] = useState({
-    rotation: [degToRad(110), degToRad(178), degToRad(5)],
-    position: [-2, 1, 0],
-  });
-  const [model, setModel] = useState(positions);
-  const [camera, setCamera] = useState({
-    position: {
-      x: 0,
-      y: 0,
-      z: 0,
-    },
-  });
   const [play, setPlay] = useState(true);
+  const [currentModel, setCurrent] = useState(0);
+  const [modelArray] = useState(["datsun", "lambo", "porsche"]);
+  const [defaultPosition, setDefaultPosition] = useState([
+    {
+      position: [-2, 1, 0],
+      rotation: [degToRad(110), degToRad(178), degToRad(5)],
+      scale: 1,
+    },
+    {
+      position: [0.2, 1, 0],
+      rotation: [degToRad(290), degToRad(0), degToRad(2)],
+      scale: 1.2,
+    },
+    {
+      position: [0.2, 1, 0],
+      rotation: [degToRad(290), degToRad(0), degToRad(4)],
+      scale: 0.004,
+    },
+  ]);
 
   return (
     <>
@@ -38,22 +45,17 @@ export default function Home() {
       />
 
       <Scene
-        camera={camera}
-        setCamera={setCamera}
-        model={model}
-        setModel={setModel}
-        positions={positions}
         play={play}
+        currentModel={currentModel}
+        defaultPosition={defaultPosition}
       />
 
       <Footer
-        camera={camera}
-        setCamera={setCamera}
-        model={model}
-        setModel={setModel}
-        positions={positions}
         play={play}
         setPlay={setPlay}
+        currentModel={currentModel}
+        setCurrent={setCurrent}
+        modelArray={modelArray}
       />
     </>
   );

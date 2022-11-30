@@ -1,22 +1,32 @@
 import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import Model from "./Model";
-import { PerspectiveCamera, OrbitControls } from "@react-three/drei";
+import { PerspectiveCamera, OrbitControls, Loader } from "@react-three/drei";
+import Lambo from "./Models/Lambo";
+import Porsche from "./Models/Porsche";
+import Datsun from "./Models/Datsun";
+
 
 export default function Scene(props: any) {
   return (
     <main className={"w-[100%] h-[90vh] bg-white"}>
-      <Canvas frameloop="demand">
-        <Suspense fallback="loading...">
-          <ambientLight intensity={2} />
-          <pointLight position={[0, 2, 10]} intensity={1.5} />
-          <pointLight position={[0, 2, -10]} intensity={1.5} />
+      <Suspense fallback={<Loader />}>
+        <Canvas frameloop="demand">
+            <ambientLight intensity={4} />
+            <pointLight position={[0, 2, 10]} intensity={1.5} />
+            <pointLight position={[0, 2, -10]} intensity={1.5} />
 
-          <PerspectiveCamera makeDefault position={[2, 2, 12]} />
-          <OrbitControls rotateSpeed={0.4} autoRotate={props.play} />
-          <Model {...props} />
-        </Suspense>
-      </Canvas>
+            <PerspectiveCamera makeDefault position={[2, 2, 12]} />
+            <OrbitControls rotateSpeed={0.4} autoRotate={props.play} />
+            
+              {props.currentModel === 0 ? (
+                <Datsun {...props} />
+              ) : props.currentModel === 1 ? (
+                <Lambo {...props} />
+              ) : (
+                <Porsche {...props} />
+              )}
+        </Canvas>
+      </Suspense>
     </main>
   );
 }
