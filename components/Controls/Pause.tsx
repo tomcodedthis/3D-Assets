@@ -12,7 +12,11 @@ export default function Paused(props: any) {
 
   return (
     <>
-      <div className={`${props.play ? "h-[85%]" : "h-[75%]"}`}>
+      <div
+        className={`${
+          props.play ? "h-[2rem] lg:h-[2.5rem]" : "h-[1.7rem] lg:h-[2.1rem]"
+        } flex items-center`}
+      >
         <Button icon={icon} click={() => play()} />
       </div>
     </>

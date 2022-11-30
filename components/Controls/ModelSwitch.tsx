@@ -24,7 +24,9 @@ export default function ModelSwitch(props: any) {
 
   return (
     <>
-      <div className={"h-[80%] flex items-center gap-4"}>
+      <div
+        className={"h-[2rem] lg:h-[2.5rem] flex items-center gap-2 lg:gap-4"}
+      >
         <Button
           icon={faAngleLeft}
           classes=""

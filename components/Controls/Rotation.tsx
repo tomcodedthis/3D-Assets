@@ -26,7 +26,11 @@ export default function Rotation(props: any) {
 
   return (
     <>
-      <div className={"h-[65%] flex items-center gap-2"}>
+      <div
+        className={
+          "h-[2rem] lg:h-[2.4rem] p-[0.15rem] flex items-center gap-2 lg:gap-4"
+        }
+      >
         <Button
           classes="hover:rotate-[-10deg]"
           icon={faRotateLeft}

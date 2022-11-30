@@ -44,19 +44,21 @@ export default function Home() {
         crossOrigin="anonymous"
       />
 
-      <Scene
-        play={play}
-        currentModel={currentModel}
-        defaultPosition={defaultPosition}
-      />
+      <div className="h-[100vh]">
+        <Scene
+          play={play}
+          currentModel={currentModel}
+          defaultPosition={defaultPosition}
+        />
 
-      <Footer
-        play={play}
-        setPlay={setPlay}
-        currentModel={currentModel}
-        setCurrent={setCurrent}
-        modelArray={modelArray}
-      />
+        <Footer
+          play={play}
+          setPlay={setPlay}
+          currentModel={currentModel}
+          setCurrent={setCurrent}
+          modelArray={modelArray}
+        />
+      </div>
     </>
   );
 }
