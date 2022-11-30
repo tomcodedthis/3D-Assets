@@ -29,6 +29,7 @@ function Credit() {
     <div className="text-base sm:text-xl lg:text-2xl">
       <Link
         href={"https://github.com/tomcodedthis"}
+        target={'_blank'}
         className="font-semibold underline underline-offset-2 opacity-80 hover:opacity-100"
       >
         tomcodedthis

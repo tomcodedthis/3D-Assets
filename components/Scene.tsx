@@ -7,7 +7,7 @@ import Datsun from "./Models/Datsun";
 
 export default function Scene(props: any) {
   return (
-    <main className={"w-full h-[90%] bg-white"}>
+    <main className={"w-full h-[90%] bg-white cursor-move"}>
       <Suspense fallback={<Loader />}>
         <Canvas frameloop="demand">
           <ambientLight intensity={4} />
