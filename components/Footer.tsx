@@ -1,7 +1,6 @@
 import Link from "next/link";
 import React from "react";
 import Paused from "./Controls/Pause";
-import Rotation from "./Controls/Rotation";
 import ModelSwitch from "./Controls/ModelSwitch";
 
 export default function Footer(props: any) {
@@ -14,9 +13,8 @@ export default function Footer(props: any) {
       >
         <Credit />
 
-        <div className="h-full flex items-center gap-8 lg:gap-12">
+        <div className="h-full flex items-center gap-6 lg:gap-10">
           <Paused {...props} />
-          <Rotation {...props} />
           <ModelSwitch {...props} />
         </div>
       </footer>
@@ -29,7 +27,7 @@ function Credit() {
     <div className="text-base sm:text-xl lg:text-2xl">
       <Link
         href={"https://github.com/tomcodedthis"}
-        target={'_blank'}
+        target={"_blank"}
         className="font-semibold underline underline-offset-2 opacity-80 hover:opacity-100"
       >
         tomcodedthis

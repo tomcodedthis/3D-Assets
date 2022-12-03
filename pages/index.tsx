@@ -1,19 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
 import Script from "next/script";
 import { useState } from "react";
 import { degToRad } from "three/src/math/MathUtils";
 import Footer from "../components/Footer";
 import Scene from "../components/Scene";
-import THREE from "three";
 
 export default function Home() {
-  // const rotation = new THREE.Euler(degToRad(110), degToRad(178), degToRad(5), "XYZ")
-  // const rotation = new THREE.Vector3(-2, 1, 0)
+  const [smallScreen, setScreen] = useState(true);
   const [play, setPlay] = useState(true);
   const [currentModel, setCurrent] = useState(0);
   const [modelArray] = useState(["datsun", "lambo", "porsche"]);
-  const [defaultPosition, setDefaultPosition] = useState([
+  const [defaultPosition] = useState([
     {
       position: [-2, 1, 0],
       rotation: [degToRad(110), degToRad(178), degToRad(5)],
@@ -31,6 +29,19 @@ export default function Home() {
     },
   ]);
 
+  const setScreenSize = () => {
+    window.innerWidth < 640 ? setScreen(true) : setScreen(false);
+  };
+
+  useEffect(() => {
+    setScreenSize();
+    window.addEventListener("resize", setScreenSize);
+
+    return () => {
+      window.removeEventListener("resize", setScreenSize);
+    };
+  }, [setScreenSize]);
+
   return (
     <>
       <Head>
@@ -46,6 +57,7 @@ export default function Home() {
 
       <div className="h-[100vh]">
         <Scene
+          smallScreen={smallScreen}
           play={play}
           currentModel={currentModel}
           defaultPosition={defaultPosition}
