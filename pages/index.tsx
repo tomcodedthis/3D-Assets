@@ -15,17 +15,17 @@ export default function Home() {
     {
       position: [-2, 1, 0],
       rotation: [degToRad(110), degToRad(178), degToRad(5)],
-      scale: 1,
+      scale: smallScreen ? 0.75 : 1,
     },
     {
       position: [0.2, 1, 0],
       rotation: [degToRad(290), degToRad(0), degToRad(2)],
-      scale: 1.2,
+      scale: smallScreen ? 1 : 1.2,
     },
     {
       position: [0.2, 1, 0],
       rotation: [degToRad(290), degToRad(0), degToRad(4)],
-      scale: 0.004,
+      scale: smallScreen ? 0.0032 : 0.004,
     },
   ]);
 

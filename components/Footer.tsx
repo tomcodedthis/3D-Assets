@@ -8,7 +8,7 @@ export default function Footer(props: any) {
     <>
       <footer
         className={
-          "w-full h-[10%] flex flex-col-reverse sm:flex-row justify-between items-center gap-4 sm:gap-6 px-4 md:px-6 pb-4 text-xl"
+          "z-1 w-full h-[10%] flex flex-col-reverse sm:flex-row justify-between items-center gap-4 sm:gap-6 px-4 md:px-6 pb-4 text-xl"
         }
       >
         <Credit />

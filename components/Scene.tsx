@@ -22,8 +22,8 @@ export default function Scene(props: any) {
           <pointLight position={[0, 2, -10]} intensity={1.5} />
 
           <GizmoHelper
-            alignment="bottom-right"
-            margin={props.smallScreen ? [75, 75] : [100, 100]}
+            alignment={`${props.smallScreen ? 'bottom-center' : 'bottom-right'}`}
+            margin={props.smallScreen ? [90, 90] : [100, 100]}
           >
             <group scale={props.smallScreen ? 0.75 : 1}>
               <GizmoViewcube
