@@ -4,20 +4,28 @@ import Button from "./Button";
 
 export default function Mode({ darkMode, setDarkMode }: any) {
   const [active, setActive] = useState(false);
+  const [currentMode, setCurrent] = useState("system");
 
   const setAct = () => {
     active ? setActive(false) : setActive(true);
   };
   const setSystem = () => {
-    window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? setDark()
-      : setLight();
+    setCurrent("system");
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      setDarkMode(true);
+      localStorage.theme = "dark";
+    } else {
+      setDarkMode(false);
+      localStorage.theme = "light";
+    }
   };
   const setLight = () => {
+    setCurrent("light");
     setDarkMode(false);
     localStorage.theme = "light";
   };
   const setDark = () => {
+    setCurrent("dark");
     setDarkMode(true);
     localStorage.theme = "dark";
   };
@@ -34,19 +42,25 @@ export default function Mode({ darkMode, setDarkMode }: any) {
         } fixed bottom-[7rem] sm:bottom-[5.5rem] sm:right-4 flex-col text-white`}
       >
         <button
-          className="py-2 px-4 rounded-t-lg bg-gray-800 hover:bg-gray-600"
+          className={`py-2 px-4 rounded-t-lg ${
+            currentMode === "system" ? "bg-gray-600" : "bg-gray-800"
+          } hover:bg-gray-600`}
           onClick={setSystem}
         >
           System
         </button>
         <button
-          className="py-2 px-4 bg-gray-800 hover:bg-gray-600"
+          className={`py-2 px-4 ${
+            currentMode === "light" ? "bg-gray-600" : "bg-gray-800"
+          } hover:bg-gray-600`}
           onClick={setLight}
         >
           Light
         </button>
         <button
-          className="py-2 px-4 rounded-b-lg bg-gray-800 hover:bg-gray-600"
+          className={`py-2 px-4 rounded-b-lg ${
+            currentMode === "dark" ? "bg-gray-600" : "bg-gray-800"
+          } hover:bg-gray-600`}
           onClick={setDark}
         >
           Dark
