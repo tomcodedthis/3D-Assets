@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 import Paused from "./Controls/Pause";
 import ModelSwitch from "./Controls/ModelSwitch";
+import Mode from "./Controls/Mode";
 
 export default function Footer(props: any) {
   return (
@@ -16,6 +17,7 @@ export default function Footer(props: any) {
         <div className="h-full flex items-center gap-6 lg:gap-10">
           <Paused {...props} />
           <ModelSwitch {...props} />
+          <Mode darkMode={props.darkMode} setDarkMode={props.setDarkMode} />
         </div>
       </footer>
     </>

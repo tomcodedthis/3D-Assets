@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 import Scene from "../components/Scene";
 
 export default function Home() {
+  const [darkMode, setDarkMode] = useState(true);
   const [smallScreen, setScreen] = useState(true);
   const [play, setPlay] = useState(true);
   const [currentModel, setCurrent] = useState(0);
@@ -33,7 +34,22 @@ export default function Home() {
     window.innerWidth < 640 ? setScreen(true) : setScreen(false);
   };
 
+  const setDefaultMode = () => {
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      setDarkMode(true);
+      document.documentElement.classList.add("dark");
+    } else {
+      setDarkMode(false);
+      document.documentElement.classList.remove("dark");
+    }
+  };
+
   useEffect(() => {
+    setDefaultMode();
     setScreenSize();
     window.addEventListener("resize", setScreenSize);
 
@@ -64,6 +80,8 @@ export default function Home() {
         />
 
         <Footer
+          darkMode={darkMode}
+          setDarkMode={setDarkMode}
           play={play}
           setPlay={setPlay}
           currentModel={currentModel}

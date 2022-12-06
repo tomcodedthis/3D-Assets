@@ -106,6 +106,7 @@ export default function Datsun(props: any) {
   const { nodes, materials } = useGLTF(
     "../model-scenes/datsun/scene.gltf"
   ) as unknown as GLTFResult;
+
   return (
     <group {...props} dispose={null}>
       <group
@@ -132,7 +133,6 @@ export default function Datsun(props: any) {
                 castShadow
                 receiveShadow
                 geometry={nodes.Cylinder014_tire_0.geometry}
-                material={materials.tire}
               />
             </group>
             <mesh

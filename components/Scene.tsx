@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { Canvas, useThree } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 import {
   PerspectiveCamera,
   OrbitControls,
@@ -14,7 +14,7 @@ import Datsun from "./Models/Datsun";
 
 export default function Scene(props: any) {
   return (
-    <main className={"w-full h-[90%] bg-white cursor-move"}>
+    <main className={"w-full h-[90%] cursor-move"}>
       <Suspense fallback={<Loader />}>
         <Canvas frameloop="demand">
           <ambientLight intensity={4} />
@@ -22,7 +22,9 @@ export default function Scene(props: any) {
           <pointLight position={[0, 2, -10]} intensity={1.5} />
 
           <GizmoHelper
-            alignment={`${props.smallScreen ? 'bottom-center' : 'bottom-right'}`}
+            alignment={`${
+              props.smallScreen ? "bottom-center" : "bottom-right"
+            }`}
             margin={props.smallScreen ? [90, 90] : [100, 100]}
           >
             <group scale={props.smallScreen ? 0.75 : 1}>
