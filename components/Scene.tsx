@@ -14,7 +14,7 @@ import Datsun from "./Models/Datsun";
 
 export default function Scene(props: any) {
   return (
-    <main className={"w-full h-[90%] cursor-move"}>
+    <main className={"w-full h-[calc(100%-75px)] cursor-move"}>
       <Suspense fallback={<Loader />}>
         <Canvas frameloop="demand">
           <ambientLight intensity={4} />
@@ -44,9 +44,9 @@ export default function Scene(props: any) {
 
           <PerspectiveCamera makeDefault position={[2, 2, 12]} />
           <OrbitControls
-            makeDefault
             rotateSpeed={0.4}
             autoRotate={props.play}
+            makeDefault
           />
 
           {props.currentModel === 0 ? (

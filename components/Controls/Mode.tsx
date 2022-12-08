@@ -39,7 +39,7 @@ export default function Mode({ darkMode, setDarkMode }: any) {
       <div
         className={`${
           active ? "flex" : "hidden"
-        } fixed bottom-[7rem] sm:bottom-[5.5rem] sm:right-4 flex-col text-white`}
+        } h-fit fixed bottom-[7rem] sm:bottom-[5.5rem] sm:right-4 flex-col text-white`}
       >
         <button
           className={`py-2 px-4 rounded-t-lg ${

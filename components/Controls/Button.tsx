@@ -7,10 +7,7 @@ export default function Button(props: any) {
       onClick={props.click}
       className={`h-full w-full ${props.classes} opacity-70 hover:opacity-100 hover:scale-110 duration-300`}
     >
-      <FontAwesomeIcon
-        icon={props.icon}
-        className={`fa-solid ${props.icon} w-full h-full`}
-      />
+      <FontAwesomeIcon icon={props.icon} className={`w-full h-full`} />
     </button>
   );
 }
